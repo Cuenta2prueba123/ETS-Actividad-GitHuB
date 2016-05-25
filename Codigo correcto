@@ -1,0 +1,85 @@
+//Codigo correcto
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RefactorizaConsola
+{
+    class Program
+    {
+        const double pi = 3.14;
+
+        static int mostrar_menu()
+        {
+            Console.Clear();
+            Console.WriteLine("1.- Funcion1");
+            Console.WriteLine("2.- Funcion2");
+            Console.WriteLine("3.- Resultado");
+            Console.WriteLine("0.- Salir");
+            Console.Write("Opción: ");
+            int op = Convert.ToInt32(Console.ReadLine());
+            return op;
+        }
+
+        static void visualizar_resultado(double resultado)
+        {
+            Console.WriteLine();
+            Console.WriteLine("La visualización del resultado es");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Para ello tenemos que visualizar los valores");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Resu: {0}", resultado);
+            Console.ReadLine();
+        }
+
+        static double funcion1()
+        {
+            double resultado;
+            resultado = pi + pi;
+            return resultado;
+        }
+
+        static int funcion2()
+        {
+            Console.Write("\nIntroduzca num1: ");
+            int num_funcion2 = Convert.ToInt32(Console.ReadLine());
+            if (num_funcion2 <= 7 || num_funcion2 < 0)  
+                for (int i = 0; i < 5; i++)
+                    num_funcion2 = num_funcion2 - i;
+            else
+                num_funcion2 = num_funcion2 * 2;
+            return (num_funcion2);
+        }
+
+        static void Main(string[] args)
+        {
+            int numero_introducido = 1;
+            while (numero_introducido != 0)
+            {
+                numero_introducido = mostrar_menu();
+                double resultado;
+                switch (numero_introducido)
+                {
+                    case 1:
+                        resultado = funcion1();
+                        visualizar_resultado(resultado);
+                        break;
+                    case 2:
+                        resultado = funcion2();
+                        visualizar_resultado(resultado);
+                        break;
+                    case 3:
+                        for (int i = 2; i <= 4; i++) { 
+                        resultado = (pi * i - 1) / pi;
+                        visualizar_resultado(resultado);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+}
